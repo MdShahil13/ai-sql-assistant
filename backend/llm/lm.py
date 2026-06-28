@@ -1,6 +1,6 @@
 from langchain_ollama import ChatOllama
 
 llm = ChatOllama(
-    model="tinyllama",
+    model="qwen2.5:3b",
     temperature=0,
 )

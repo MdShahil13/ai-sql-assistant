@@ -1,6 +1,8 @@
 from fastapi import FastAPI, UploadFile, File
 import pandas as pd
 from sqlalchemy import create_engine
+from routers.query import router as query_router
+
 import os
 
 app = FastAPI()
@@ -40,3 +42,5 @@ async def upload_csv(file: UploadFile = File(...)):
         "table_name": table_name,
         "rows": len(df)
     }
+
+app.include_router(query_router)
