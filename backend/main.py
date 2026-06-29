@@ -4,8 +4,18 @@ from sqlalchemy import create_engine
 from routers.query import router as query_router
 
 import os
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 engine = create_engine(
     "postgresql://postgres:Shahil%4013@localhost:5432/ai_sql_assistant"

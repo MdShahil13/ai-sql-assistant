@@ -1,9 +1,25 @@
+import Navbar from "../components/Navbar";
+import UploadBox from "../components/UploadBox";
+import QuestionBox from "../components/QuestionBox";
+import SQLViewer from "../components/SQLViewer";
+import ResultTable from "../components/ResultTable";
+
 function Home() {
   return (
-    <div className="min-h-screen bg-gray-100 flex justify-center items-center">
-      <h1 className="text-5xl font-bold text-blue-600">
-        AI SQL Assistant 🚀
-      </h1>
+    <div className="min-h-screen bg-gray-100">
+      <Navbar />
+
+      <div className="max-w-6xl mx-auto p-8 space-y-8">
+
+        <UploadBox />
+
+        <QuestionBox />
+
+        <SQLViewer />
+
+        <ResultTable />
+
+      </div>
     </div>
   );
 }

@@ -1,7 +1,13 @@
 function Navbar() {
   return (
-    <nav>
-      <h1>AI SQL Assistant</h1>
+    <nav className="bg-blue-600 text-white shadow-md">
+      <div className="max-w-6xl mx-auto px-6 py-4">
+
+        <h1 className="text-3xl font-bold">
+          🤖 AI SQL Assistant
+        </h1>
+
+      </div>
     </nav>
   );
 }
