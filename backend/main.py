@@ -2,9 +2,10 @@ from fastapi import FastAPI, UploadFile, File
 import pandas as pd
 from sqlalchemy import create_engine
 from routers.query import router as query_router
-
+from routers.ask import router as ask_router
 import os
 from fastapi.middleware.cors import CORSMiddleware
+from services.table_state import set_current_table
 
 app = FastAPI()
 
@@ -40,6 +41,8 @@ async def upload_csv(file: UploadFile = File(...)):
 
     table_name = file.filename.split(".")[0]
 
+    set_current_table(table_name)
+
     df.to_sql(
         table_name,
         engine,
@@ -54,3 +57,4 @@ async def upload_csv(file: UploadFile = File(...)):
     }
 
 app.include_router(query_router)
+app.include_router(ask_router)

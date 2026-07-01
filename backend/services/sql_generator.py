@@ -1,5 +1,6 @@
 from llm.lm import llm
 
+
 def generate_sql(schema: str, question: str):
 
     prompt = f"""
@@ -13,7 +14,7 @@ Rules:
 1. Return ONLY SQL.
 2. Do not explain anything.
 3. Do not use markdown.
-4. Use only tables and columns from the schema.
+4. Use only the table and columns shown above.
 
 User Question:
 {question}

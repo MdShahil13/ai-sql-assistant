@@ -4,21 +4,16 @@ engine = create_engine(
     "postgresql://postgres:Shahil%4013@localhost:5432/ai_sql_assistant"
 )
 
-def get_database_schema():
+
+def get_database_schema(table_name):
 
     inspector = inspect(engine)
 
-    schema = ""
+    schema = f"Table: {table_name}\n"
 
-    tables = inspector.get_table_names()
+    columns = inspector.get_columns(table_name)
 
-    for table in tables:
-
-        schema += f"\nTable: {table}\n"
-
-        columns = inspector.get_columns(table)
-
-        for column in columns:
-            schema += f"- {column['name']} ({column['type']})\n"
+    for column in columns:
+        schema += f"- {column['name']} ({column['type']})\n"
 
     return schema

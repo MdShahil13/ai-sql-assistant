@@ -1,4 +1,6 @@
-function SQLViewer() {
+function SQLViewer({ sql }) {
+  if (!sql) return null;
+
   return (
     <div className="bg-white rounded-xl shadow-md p-6">
 
@@ -6,8 +8,8 @@ function SQLViewer() {
         Generated SQL
       </h2>
 
-      <pre className="bg-gray-900 text-green-400 p-4 rounded overflow-auto">
-No SQL Generated Yet
+      <pre className="bg-gray-900 text-green-400 p-4 rounded-lg overflow-x-auto">
+        <code>{sql}</code>
       </pre>
 
     </div>
